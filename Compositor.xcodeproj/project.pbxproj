@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5A9C0D1E2F3A4B5C6D7E8F01 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5A9C0D1E2F3A4B5C6D7E8F03 /* Sparkle */; };
+		8F311C02304F03BC0017D14F /* MCP in Frameworks */ = {isa = PBXBuildFile; productRef = 8F311C01304F03BC0017D14F /* MCP */; };
+		8F311C0D304F03BC0017D14F /* MCP in Frameworks */ = {isa = PBXBuildFile; productRef = 8F311C01304F03BC0017D14F /* MCP */; };
+		8F311C0E304F03BC0017D14F /* MCP in Frameworks */ = {isa = PBXBuildFile; productRef = 8F311C01304F03BC0017D14F /* MCP */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +34,26 @@
 		8F311F99304F03BB0017D14F /* Compositor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compositor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F311FA6304F03BC0017D14F /* CompositorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompositorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F311FB0304F03BC0017D14F /* CompositorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompositorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F311C03304F03BC0017D14F /* compositor-mcp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = compositor-mcp; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8F311F9B304F03BB0017D14F /* Compositor */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8F311C0C304F03BC0017D14F /* Exceptions for "Compositor" folder in "compositor-mcp" target */,
+			);
 			path = Compositor;
+			sourceTree = "<group>";
+		};
+		8F311C04304F03BC0017D14F /* CompositorMCP */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CompositorMCP;
+			sourceTree = "<group>";
+		};
+		8F311C0F304F03BC0017D14F /* Core */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8F311FA9304F03BC0017D14F /* CompositorTests */ = {
@@ -51,12 +68,33 @@
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8F311C0C304F03BC0017D14F /* Exceptions for "Compositor" folder in "compositor-mcp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CompositorApp.swift,
+				CompositorApplicationDelegate.swift,
+				Assets.xcassets,
+			);
+			target = 8F311C05304F03BC0017D14F /* compositor-mcp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		8F311C07304F03BC0017D14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F311C02304F03BC0017D14F /* MCP in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F311F96304F03BB0017D14F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5A9C0D1E2F3A4B5C6D7E8F01 /* Sparkle in Frameworks */,
+				8F311C0D304F03BC0017D14F /* MCP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F311C0E304F03BC0017D14F /* MCP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				8F311F9B304F03BB0017D14F /* Compositor */,
+				8F311C04304F03BC0017D14F /* CompositorMCP */,
+				8F311C0F304F03BC0017D14F /* Core */,
 				8F311FA9304F03BC0017D14F /* CompositorTests */,
 				8F311FB3304F03BC0017D14F /* CompositorUITests */,
 				8F311F9A304F03BB0017D14F /* Products */,
@@ -91,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				8F311F99304F03BB0017D14F /* Compositor.app */,
+				8F311C03304F03BC0017D14F /* compositor-mcp */,
 				8F311FA6304F03BC0017D14F /* CompositorTests.xctest */,
 				8F311FB0304F03BC0017D14F /* CompositorUITests.xctest */,
 			);
@@ -100,6 +142,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8F311C05304F03BC0017D14F /* compositor-mcp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F311C09304F03BC0017D14F /* Build configuration list for PBXNativeTarget "compositor-mcp" */;
+			buildPhases = (
+				8F311C06304F03BC0017D14F /* Sources */,
+				8F311C07304F03BC0017D14F /* Frameworks */,
+				8F311C08304F03BC0017D14F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8F311C04304F03BC0017D14F /* CompositorMCP */,
+				8F311C0F304F03BC0017D14F /* Core */,
+				8F311F9B304F03BB0017D14F /* Compositor */,
+			);
+			name = compositor-mcp;
+			packageProductDependencies = (
+				8F311C01304F03BC0017D14F /* MCP */,
+			);
+			productName = compositor-mcp;
+			productReference = 8F311C03304F03BC0017D14F /* compositor-mcp */;
+			productType = "com.apple.product-type.tool";
+		};
 		8F311F98304F03BB0017D14F /* Compositor */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F311FBA304F03BC0017D14F /* Build configuration list for PBXNativeTarget "Compositor" */;
@@ -113,11 +180,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				8F311C0F304F03BC0017D14F /* Core */,
 				8F311F9B304F03BB0017D14F /* Compositor */,
 			);
 			name = Compositor;
 			packageProductDependencies = (
 				5A9C0D1E2F3A4B5C6D7E8F03 /* Sparkle */,
+				8F311C01304F03BC0017D14F /* MCP */,
 			);
 			productName = Compositor;
 			productReference = 8F311F99304F03BB0017D14F /* Compositor.app */;
@@ -141,6 +210,7 @@
 			);
 			name = CompositorTests;
 			packageProductDependencies = (
+				8F311C01304F03BC0017D14F /* MCP */,
 			);
 			productName = CompositorTests;
 			productReference = 8F311FA6304F03BC0017D14F /* CompositorTests.xctest */;
@@ -179,6 +249,9 @@
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					8F311C05304F03BC0017D14F = {
+						CreatedOnToolsVersion = 26.6;
+					};
 					8F311F98304F03BB0017D14F = {
 						CreatedOnToolsVersion = 26.6;
 					};
@@ -203,6 +276,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5A9C0D1E2F3A4B5C6D7E8F02 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				8F311C00304F03BC0017D14F /* XCRemoteSwiftPackageReference "swift-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8F311F9A304F03BB0017D14F /* Products */;
@@ -210,6 +284,7 @@
 			projectRoot = "";
 			targets = (
 				8F311F98304F03BB0017D14F /* Compositor */,
+				8F311C05304F03BC0017D14F /* compositor-mcp */,
 				8F311FA5304F03BC0017D14F /* CompositorTests */,
 				8F311FAF304F03BC0017D14F /* CompositorUITests */,
 			);
@@ -217,6 +292,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F311C08304F03BC0017D14F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F311F97304F03BB0017D14F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +323,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F311C06304F03BC0017D14F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F311F95304F03BB0017D14F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +367,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8F311C0A304F03BC0017D14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 31;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 3E4X3B9Z9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.3.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonderassembly.compositor.mcp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Compositor/Compositor-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8F311C0B304F03BC0017D14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 31;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 3E4X3B9Z9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.3.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wonderassembly.compositor.mcp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Compositor/Compositor-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		8F311FB8304F03BC0017D14F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -570,6 +701,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F311C09304F03BC0017D14F /* Build configuration list for PBXNativeTarget "compositor-mcp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F311C0A304F03BC0017D14F /* Debug */,
+				8F311C0B304F03BC0017D14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8F311F94304F03BB0017D14F /* Build configuration list for PBXProject "Compositor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -609,6 +749,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8F311C00304F03BC0017D14F /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/modelcontextprotocol/swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
 		5A9C0D1E2F3A4B5C6D7E8F02 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -620,6 +768,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8F311C01304F03BC0017D14F /* MCP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F311C00304F03BC0017D14F /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = MCP;
+		};
 		5A9C0D1E2F3A4B5C6D7E8F03 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A9C0D1E2F3A4B5C6D7E8F02 /* XCRemoteSwiftPackageReference "Sparkle" */;

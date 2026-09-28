@@ -1,16 +1,9 @@
 import AppKit
 import Observation
 
-nonisolated struct PaletteColor: Equatable, Sendable {
-    var red: CGFloat
-    var green: CGFloat
-    var blue: CGFloat
-    static let black = PaletteColor(red: 0, green: 0, blue: 0)
-    static let white = PaletteColor(red: 1, green: 1, blue: 1)
+// PaletteColor's stored components live in Core; these are the AppKit bridge.
+extension PaletteColor {
     var nsColor: NSColor { NSColor(srgbRed: red, green: green, blue: blue, alpha: 1) }
-    init(red: CGFloat, green: CGFloat, blue: CGFloat) {
-        self.red = red; self.green = green; self.blue = blue
-    }
     init?(_ color: NSColor) {
         guard let rgb = color.usingColorSpace(.sRGB) else { return nil }
         self.init(red: min(1, max(0, rgb.redComponent)), green: min(1, max(0, rgb.greenComponent)), blue: min(1, max(0, rgb.blueComponent)))

@@ -1,5 +1,7 @@
 #include "AdjustPixels.h"
-#include "LensPixels.h"
+// The headers live in Core/include (where SwiftPM looks for them); the path is relative to this
+// file so it resolves for both SwiftPM and the Xcode bridging header.
+#include "../../include/LensPixels.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>

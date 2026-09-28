@@ -8,6 +8,8 @@ final class ProjectController {
     weak var window: NSWindow?
     weak var workspace: ProjectWorkspace?
     private var saveGeneration = 0
+    /// Set by the MCP server: failures come back as tool results instead of dialogs.
+    var suppressDialogs = false
     /// Keeps the document in step with its package when something else writes it. See ProjectController+ExternalChanges.
     let externalChanges = ExternalChangeState()
     var canStart: Bool {
@@ -196,6 +198,31 @@ final class ProjectController {
         return await write(prepared.snapshot, to: prepared.destination, revision: prepared.revision)
     }
 
+    /// Saves the document to a specific file with no UI. Used by the MCP server, which always
+    /// supplies a path for a project that has never been saved.
+    @discardableResult
+    func save(to destination: URL) async -> Bool {
+        guard session.document != nil else { return false }
+        await finishWriting()
+        guard begin() else { return false }
+        let revision = session.history.currentRevision
+        guard let snapshot = session.projectSnapshot() else {
+            session.isProjectBusy = false
+            return false
+        }
+        session.isProjectBusy = false
+        return await write(snapshot, to: destination, revision: revision)
+    }
+
+    /// Closes the project without any UI, discarding unsaved changes. Used by the MCP server.
+    func closeDiscardingChanges() async {
+        await finishWriting()
+        guard begin() else { return }
+        session.clearProject()
+        stopWatchingProject()
+        session.isProjectBusy = false
+    }
+
     /// The document as it is now, and where it goes: asks with the Save panel when it has no file yet (or Save As).
     private func prepareSave(asNew: Bool) async -> (snapshot: ProjectSnapshot, destination: URL, revision: UUID)? {
         let revision = session.history.currentRevision
@@ -340,6 +367,7 @@ final class ProjectController {
     }
 
     private func showError(_ title: String, error: Error) async {
+        guard !suppressDialogs else { return }
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = title

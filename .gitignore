@@ -1,6 +1,7 @@
 # Build output
 dist/
 build/
+output/
 DerivedData/
 *.xcarchive
 *.dmg
@@ -22,3 +23,6 @@ xcuserdata/
 # Claude Code settings personal to this machine
 .claude/settings.local.json
 BUILD_PLAN.md
+
+# Local AI-assistant workspace (plans, session notes)
+.trae/

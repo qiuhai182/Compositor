@@ -151,6 +151,12 @@ struct CompositorApp: App {
                                 .configuredKeyboardShortcut(";", modifiers: [.command, .option]).disabled(session.document == nil)
                             Button("Clear Guides") { session.clearGuides() }
                                 .disabled(!session.canClearGuides)
+                            Divider()
+                            // The MCP server lets AI agents edit .comp projects while Compositor runs;
+                            // agents work in their own sessions and an open project follows their saves.
+                            Toggle("MCP Server", isOn: Binding(get: { EmbeddedMCPServer.shared.isRunning },
+                                                               set: { $0 ? EmbeddedMCPServer.shared.start()
+                                                                         : EmbeddedMCPServer.shared.stop() }))
                         }
                     }
                     // ⌘H toggles the Move tool's transform controls instead of hiding the app, so Hide keeps its

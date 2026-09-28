@@ -13,3 +13,4 @@ If you've been asked to make or change an image in a `.comp` project, you don't 
 - Match the surrounding code: its naming, its comment style and density.
 - American spelling in code, comments and UI ("color", not "colour").
 - The project file format is described in [docs/project-format.md](docs/project-format.md). A change to what's saved means a format version bump there and in `ProjectManifest.current`.
+- `Core/` is the cross-platform model package (SwiftPM target `CompositorCore`, `swift build`/`swift test` at the repo root, built on all three platforms in CI). On Windows and Linux, `build.bat`/`build.sh` wrap that build; every intermediate and product stays under `output/`. It must stay free of Apple-framework imports — see [docs/cross-platform.md](docs/cross-platform.md) for what belongs there and what stays in the app tree.
